@@ -14,4 +14,10 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.sparrowzoo</groupId>
+            <artifactId>sparrow-protocol-dao</artifactId>
+        </dependency>
+    </dependencies>
 </project>
