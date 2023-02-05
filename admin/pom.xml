@@ -18,5 +18,6 @@
         <module>cms-admin-controller</module>
         <module>cms-admin-mybatis-plus</module>
         <module>cms-admin-dao-jdbc</module>
+        <module>cms-admin-dao-sparrow</module>
     </modules>
 </project>

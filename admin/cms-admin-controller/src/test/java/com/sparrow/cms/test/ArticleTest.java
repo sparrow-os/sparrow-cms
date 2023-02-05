@@ -1,6 +1,7 @@
 package com.sparrow.cms.test;
 
 import com.sparrow.cms.po.Article;
+import com.sparrow.protocol.enums.StatusRecord;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,8 +15,8 @@ public class ArticleTest {
     @Test
     public void test() {
         Article article = new Article();
-        article.setArticleId(0L);
-        article.setForumCode("");
+        article.setId(0L);
+        article.setChannel(1L);
         article.setEditor("");
         article.setTitle("");
         article.setBrief("");
@@ -25,17 +26,14 @@ public class ArticleTest {
         article.setUpdateTime(0L);
         article.setCreateUserId(0L);
         article.setCreateUserName("");
-        article.setStatus(0);
+        article.setStatus(StatusRecord.ENABLE);
         article.setUrl("");
         article.setSort(0);
-        article.setPageSize(0);
-        article.setType("");
         article.setCover("");
         article.setAlbumId(0L);
         article.setKeywords("");
         article.setRemark("");
-        article.setOnlyShowInSelfForum(false);
-        System.out.println(article.getArticleId());
+        System.out.println(article.getId());
     }
 
     @After

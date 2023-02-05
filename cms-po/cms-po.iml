@@ -11,5 +11,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.sparrowzoo:sparrow-protocol-dao:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.sparrowzoo:sparrow-protocol:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0" level="project" />
   </component>
 </module>

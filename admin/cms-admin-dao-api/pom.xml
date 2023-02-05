@@ -9,8 +9,9 @@
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>com.sparrowzoo.cms</groupId>
     <artifactId>cms-admin-dao-api</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
