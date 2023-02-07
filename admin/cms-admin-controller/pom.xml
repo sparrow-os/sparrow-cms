@@ -21,6 +21,11 @@
             <artifactId>cms-admin-protocol</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.sparrowzoo</groupId>
+            <artifactId>cms-po</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -32,14 +37,19 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--        <dependency>-->
+        <!--            <groupId>com.sparrowzoo.cms</groupId>-->
+        <!--            <artifactId>cms-admin-dao-sparrow</artifactId>-->
+        <!--            <version>1.0.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.sparrowzoo</groupId>-->
+        <!--            <artifactId>sparrow-starter</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
-            <groupId>com.sparrowzoo.cms</groupId>
-            <artifactId>cms-admin-dao-sparrow</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sparrowzoo</groupId>
-            <artifactId>sparrow-starter</artifactId>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.10.5</version>
         </dependency>
     </dependencies>
 </project>

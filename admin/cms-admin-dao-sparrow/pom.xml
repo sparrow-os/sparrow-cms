@@ -54,10 +54,10 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.sparrowzoo</groupId>
-            <artifactId>sparrow-data-source</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.sparrowzoo</groupId>-->
+<!--            <artifactId>sparrow-data-source</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>

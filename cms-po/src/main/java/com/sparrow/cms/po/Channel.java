@@ -14,6 +14,9 @@ public class Channel extends PO {
     private String name;
     private String code;
     private Integer sort;
+    private String listUrl;
+    private String detailUrl;
+    private String newUrl;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,4 +60,33 @@ public class Channel extends PO {
         this.sort = sort;
     }
 
+    @MethodOrder(order = 5)
+    @Column(name = "list_url", columnDefinition = "varchar(256)  DEFAULT '' COMMENT '列表页 url'", nullable = false)
+    public String getListUrl() {
+        return listUrl;
+    }
+
+    public void setListUrl(String listUrl) {
+        this.listUrl = listUrl;
+    }
+
+    @MethodOrder(order = 6)
+    @Column(name = "detail_url", columnDefinition = "varchar(256)  DEFAULT '' COMMENT '详情页 url'", nullable = false)
+    public String getDetailUrl() {
+        return detailUrl;
+    }
+
+    public void setDetailUrl(String detailUrl) {
+        this.detailUrl = detailUrl;
+    }
+
+    @MethodOrder(order = 7)
+    @Column(name = "new_url", columnDefinition = "varchar(256)  DEFAULT '' COMMENT '新建 url'", nullable = false)
+    public String getNewUrl() {
+        return newUrl;
+    }
+
+    public void setNewUrl(String newUrl) {
+        this.newUrl = newUrl;
+    }
 }

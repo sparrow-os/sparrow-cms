@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 public class ChannelConverter {
     public Channel param2Po(ChannelSaveParam channelSave) {
         Channel channel = new Channel();
+        channel.setListUrl("");
+        channel.setDetailUrl("");
+        channel.setNewUrl("");
         channel.setId(channelSave.getId());
         channel.setName(channelSave.getName());
         channel.setCode(channelSave.getCode());

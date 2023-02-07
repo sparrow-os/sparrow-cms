@@ -1,13 +1,10 @@
 package com.sparrow.cms.controller;
 
-import com.sparrow.cms.converter.ChannelConverter;
-import com.sparrow.cms.dao.ChannelDAO;
 import com.sparrow.cms.po.Channel;
 import com.sparrow.cms.protocol.channel.ChannelQuery;
 import com.sparrow.cms.protocol.channel.ChannelSaveParam;
 import com.sparrow.protocol.BusinessException;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

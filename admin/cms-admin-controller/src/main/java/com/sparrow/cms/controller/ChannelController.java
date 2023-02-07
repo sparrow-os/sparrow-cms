@@ -1,13 +1,11 @@
 package com.sparrow.cms.controller;
 
 import com.sparrow.cms.converter.ChannelConverter;
-import com.sparrow.cms.dao.ChannelDAO;
-import com.sparrow.cms.po.Channel;
 import com.sparrow.cms.protocol.channel.ChannelQuery;
 import com.sparrow.cms.protocol.channel.ChannelSaveParam;
 import com.sparrow.protocol.BusinessException;
-import javax.annotation.Resource;
-import javax.inject.Inject;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,21 +18,21 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @RequestMapping("channel")
 @Component
+@Api(value = "频道管理API", tags = "频道")
 public class ChannelController {
 
     @Autowired
     private ChannelConverter channelConverter;
 
-    @Autowired
-    @Inject
-    @Resource
-    private ChannelDAO channelDao;
+    //    @Inject
+//    private ChannelDAO channelDao;
 
     @PostMapping("save")
+    @ApiOperation("频道保存")
     public Long saveChannel(@RequestBody ChannelSaveParam channelSaveParam) {
-        //TODO 参数较验
-        Channel channel = this.channelConverter.param2Po(channelSaveParam);
-        return channelDao.insert(channel);
+//        Channel channel = this.channelConverter.param2Po(channelSaveParam);
+//        return channelDao.insert(channel);
+        return null;
     }
 
     @GetMapping("manage")
