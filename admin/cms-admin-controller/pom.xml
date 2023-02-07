@@ -20,12 +20,6 @@
     <dependencies>
         <dependency>
             <groupId>com.sparrowzoo</groupId>
-            <artifactId>cms-admin-dao-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sparrowzoo</groupId>
             <artifactId>cms-admin-protocol</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
@@ -49,6 +43,10 @@
             <groupId>com.sparrowzoo.cms</groupId>
             <artifactId>cms-admin-dao-sparrow</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sparrowzoo</groupId>
+            <artifactId>sparrow-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

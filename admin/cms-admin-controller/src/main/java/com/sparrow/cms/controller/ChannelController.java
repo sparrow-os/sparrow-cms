@@ -6,7 +6,10 @@ import com.sparrow.cms.po.Channel;
 import com.sparrow.cms.protocol.channel.ChannelQuery;
 import com.sparrow.cms.protocol.channel.ChannelSaveParam;
 import com.sparrow.protocol.BusinessException;
+import javax.annotation.Resource;
+import javax.inject.Inject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,12 +19,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("channel")
+@Component
 public class ChannelController {
 
     @Autowired
     private ChannelConverter channelConverter;
 
     @Autowired
+    @Inject
+    @Resource
     private ChannelDAO channelDao;
 
     @PostMapping("save")
