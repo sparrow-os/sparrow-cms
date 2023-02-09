@@ -3,6 +3,7 @@ package com.sparrow.cms.controller;
 import com.sparrow.cms.converter.ChannelConverter;
 import com.sparrow.cms.protocol.channel.ChannelQuery;
 import com.sparrow.cms.protocol.channel.ChannelSaveParam;
+import com.sparrow.cms.vo.ChannelVO;
 import com.sparrow.protocol.BusinessException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -50,7 +51,7 @@ public class ChannelController {
     }
 
     @GetMapping("new")
-    public ModelAndView getChannel(Long channelId) throws BusinessException {
+    public ChannelVO getChannel(Long channelId) throws BusinessException {
         return null;
     }
 

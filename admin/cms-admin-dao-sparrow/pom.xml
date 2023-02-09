@@ -16,7 +16,6 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <druid.version>1.1.10</druid.version>
     </properties>
 
     <dependencies>
@@ -42,26 +41,14 @@
             <artifactId>sparrow-loader</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.sparrowzoo</groupId>
-            <artifactId>sparrow-json</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.sparrowzoo.cms</groupId>
             <artifactId>cms-admin-dao-api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.sparrowzoo</groupId>-->
-<!--            <artifactId>sparrow-data-source</artifactId>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>${druid.version}</version>
+            <groupId>com.sparrowzoo</groupId>
+            <artifactId>sparrow-data-source</artifactId>
         </dependency>
     </dependencies>
 </project>

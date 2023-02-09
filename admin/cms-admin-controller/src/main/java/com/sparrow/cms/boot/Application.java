@@ -1,10 +1,14 @@
 package com.sparrow.cms.boot;
 
+import com.sparrow.container.Container;
+import com.sparrow.container.ContainerBuilder;
+import com.sparrow.core.spi.ApplicationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -16,20 +20,20 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(Application.class);
 
-//        springApplication.addListeners(new ApplicationListener<ApplicationStartingEvent>() {
-//            @Override public void onApplicationEvent(ApplicationStartingEvent event) {
-//                Container container = ApplicationContext.getContainer();
-//                //只提供proxy 代码类加速反射
-//                ContainerBuilder builder = new ContainerBuilder()
-//                    //只扫描com.sparrow下的类
-//                    .scanBasePackage("com.sparrow")
-//                    .initController(false)
-//                    .initSingletonBean(false)
-//                    .initInterceptor(false);
-//                container.init(builder);
-//                log.info("spring boot 应用程序启动前执行");
-//            }
-//        });
+        springApplication.addListeners(new ApplicationListener<ApplicationStartingEvent>() {
+            @Override public void onApplicationEvent(ApplicationStartingEvent event) {
+                Container container = ApplicationContext.getContainer();
+                //只提供proxy 代码类加速反射
+                ContainerBuilder builder = new ContainerBuilder()
+                    //只扫描com.sparrow下的类
+                    .scanBasePackage("com.sparrow")
+                    .initController(false)
+                    .initSingletonBean(false)
+                    .initInterceptor(false);
+                container.init(builder);
+                log.info("spring boot 应用程序启动前执行");
+            }
+        });
 
         springApplication.addListeners(new ApplicationListener<ContextRefreshedEvent>() {
             @Override
