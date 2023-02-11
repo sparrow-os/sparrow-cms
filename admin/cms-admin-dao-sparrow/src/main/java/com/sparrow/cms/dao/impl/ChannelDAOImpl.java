@@ -5,6 +5,6 @@ import com.sparrow.cms.po.Channel;
 import com.sparrow.orm.template.impl.ORMStrategy;
 import javax.inject.Named;
 
-//@Named
+@Named
 public class ChannelDAOImpl extends ORMStrategy<Channel, Long> implements ChannelDAO {
 }
