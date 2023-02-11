@@ -54,10 +54,6 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.sparrowzoo</groupId>
-            <artifactId>sparrow-data-source</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
@@ -69,11 +65,6 @@
         <dependency>
             <groupId>com.sparrowzoo</groupId>
             <artifactId>sparrow-json</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>2.0.9</version>
         </dependency>
     </dependencies>
 </project>
