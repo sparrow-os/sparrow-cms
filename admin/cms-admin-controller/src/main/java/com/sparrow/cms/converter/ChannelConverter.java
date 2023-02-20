@@ -1,15 +1,51 @@
 package com.sparrow.cms.converter;
 
+import com.sparrow.cms.vo.ChannelItemVO;
+import com.sparrow.cms.vo.DetailChannelVO;
 import com.sparrow.protocol.enums.StatusRecord;
 
-import com.sparrow.cms.po.Channel;
+import com.sparrow.cms.po.ContentMainType;
 import com.sparrow.cms.protocol.channel.ChannelSaveParam;
+import com.sparrow.utility.BeanUtility;
+import com.sparrow.utility.CollectionsUtility;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ChannelConverter {
-    public Channel param2Po(ChannelSaveParam channelSave) {
-        Channel channel = new Channel();
+    public DetailChannelVO po2Vo(ContentMainType channel) {
+        if (channel == null) {
+            return new DetailChannelVO();
+        }
+        DetailChannelVO channelVo = new DetailChannelVO();
+        BeanUtility.copyProperties(channel, channelVo);
+        return channelVo;
+    }
+
+    public ChannelItemVO po2ItemVo(ContentMainType channel) {
+        if (channel == null) {
+            return new ChannelItemVO();
+        }
+        ChannelItemVO channelItemVo = new ChannelItemVO();
+        BeanUtility.copyProperties(channel, channelItemVo);
+        return channelItemVo;
+    }
+
+    public List<ChannelItemVO> poList2ItemVoList(List<ContentMainType> channelList) {
+        if (CollectionsUtility.isNullOrEmpty(channelList)) {
+            return Collections.emptyList();
+        }
+        List<ChannelItemVO> itemVOList = new ArrayList<>(channelList.size());
+        for (ContentMainType channel : channelList) {
+            itemVOList.add(this.po2ItemVo(channel));
+        }
+        return itemVOList;
+    }
+
+    public ContentMainType param2Po(ChannelSaveParam channelSave) {
+        ContentMainType channel = new ContentMainType();
         channel.setListUrl("");
         channel.setDetailUrl("");
         channel.setNewUrl("");

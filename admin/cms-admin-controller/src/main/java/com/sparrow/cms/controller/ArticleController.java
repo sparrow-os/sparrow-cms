@@ -1,6 +1,6 @@
 package com.sparrow.cms.controller;
 
-import com.sparrow.cms.po.Channel;
+import com.sparrow.cms.po.ContentMainType;
 import com.sparrow.cms.protocol.channel.ChannelQuery;
 import com.sparrow.cms.protocol.channel.ChannelSaveParam;
 import com.sparrow.protocol.BusinessException;
@@ -23,7 +23,7 @@ public class ArticleController {
     }
 
     @GetMapping("manage")
-    public List<Channel> loadAllChannels() {
+    public List<ContentMainType> loadAllChannels() {
         return null;
     }
 

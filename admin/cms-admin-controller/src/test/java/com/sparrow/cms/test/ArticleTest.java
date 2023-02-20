@@ -1,6 +1,6 @@
 package com.sparrow.cms.test;
 
-import com.sparrow.cms.po.Article;
+import com.sparrow.cms.po.Content;
 import com.sparrow.protocol.enums.StatusRecord;
 import org.junit.After;
 import org.junit.Before;
@@ -14,7 +14,7 @@ public class ArticleTest {
 
     @Test
     public void test() {
-        Article article = new Article();
+        Content article = new Content();
         article.setId(0L);
         article.setChannel(1L);
         article.setEditor("");

@@ -1,20 +1,18 @@
-package com.sparrow.cms.po;
+package com.sparrow.goods.po;
 
 import com.sparrow.protocol.MethodOrder;
-import com.sparrow.protocol.dao.PO;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Table(name = "article_type")
-public class ArticleType extends PO {
+public class GoodsCategory {
     private Long id;
-    private Long channel;
     private Long parentId;
-    private String name;
     private String code;
+    private String name;
+    private Integer depth;
+    private Boolean leaf;
     private Integer sort;
 
     @Id
@@ -27,16 +25,6 @@ public class ArticleType extends PO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @MethodOrder(order = 2)
-    @Column(name = "channel", columnDefinition = "int(11) UNSIGNED DEFAULT 0 COMMENT '频道ID'", nullable = false)
-    public Long getChannel() {
-        return channel;
-    }
-
-    public void setChannel(Long channel) {
-        this.channel = channel;
     }
 
     @MethodOrder(order = 3)
@@ -70,6 +58,26 @@ public class ArticleType extends PO {
     }
 
     @MethodOrder(order = 6)
+    @Column(name = "depth", columnDefinition = "int(10) DEFAULT 0 COMMENT '深度'", nullable = false)
+    public Integer getDepth() {
+        return depth;
+    }
+
+    public void setDepth(Integer depth) {
+        this.depth = depth;
+    }
+
+    @MethodOrder(order = 7)
+    @Column(name = "leaf", columnDefinition = "tinyint(1) DEFAULT 0 COMMENT '是否叶子节点'", nullable = false)
+    public Boolean getLeaf() {
+        return leaf;
+    }
+
+    public void setLeaf(Boolean leaf) {
+        this.leaf = leaf;
+    }
+
+    @MethodOrder(order = 11)
     @Column(name = "sort", columnDefinition = "int(10) DEFAULT 0 COMMENT '排序号'", nullable = false)
     public Integer getSort() {
         return sort;
@@ -78,4 +86,5 @@ public class ArticleType extends PO {
     public void setSort(Integer sort) {
         this.sort = sort;
     }
+
 }

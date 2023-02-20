@@ -2,13 +2,15 @@ package com.sparrow.cms.controller;
 
 import com.sparrow.cms.converter.ChannelConverter;
 import com.sparrow.cms.dao.ChannelDAO;
-import com.sparrow.cms.po.Channel;
+import com.sparrow.cms.po.ContentMainType;
 import com.sparrow.cms.protocol.channel.ChannelQuery;
 import com.sparrow.cms.protocol.channel.ChannelSaveParam;
-import com.sparrow.cms.vo.ChannelVO;
+import com.sparrow.cms.vo.ChannelItemVO;
+import com.sparrow.cms.vo.DetailChannelVO;
 import com.sparrow.protocol.BusinessException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import java.util.List;
 import javax.inject.Inject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,13 +36,15 @@ public class ChannelController {
     @PostMapping("save")
     @ApiOperation("频道保存")
     public Long saveChannel(@RequestBody ChannelSaveParam channelSaveParam) {
-        Channel channel = this.channelConverter.param2Po(channelSaveParam);
+        ContentMainType channel = this.channelConverter.param2Po(channelSaveParam);
         return channelDao.insert(channel);
     }
 
     @GetMapping("manage")
-    public ModelAndView loadAllChannels() {
-        return null;
+    @ApiOperation("全部频道管理")
+    public List<ChannelItemVO> loadAllChannels() {
+        List<ContentMainType> channelList = this.channelDao.getList();
+        return this.channelConverter.poList2ItemVoList(channelList);
     }
 
     private ModelAndView queryChannels(ChannelQuery channelQuery) {
@@ -48,27 +52,34 @@ public class ChannelController {
     }
 
     @PostMapping("search.do")
-    public ModelAndView search(ChannelQuery channelQuery) {
-        return null;
+    @ApiOperation("查询频道")
+    public List<ChannelItemVO> search(ChannelQuery channelQuery) {
+        //this.channelDao.getList(channelQuery);
+        return this.channelConverter.poList2ItemVoList(null);
     }
 
-    @GetMapping("new")
-    public ChannelVO getChannel(Long channelId) throws BusinessException {
-        return null;
+    @ApiOperation("编辑")
+    @GetMapping("edit")
+    public DetailChannelVO getChannel(Long channelId) throws BusinessException {
+        ContentMainType channel = this.channelDao.getEntity(channelId);
+        return this.channelConverter.po2Vo(channel);
     }
 
     @PostMapping("delete")
-    public ModelAndView delChannel(String ids) throws BusinessException {
-        return null;
+    @ApiOperation("删除频道")
+    public Integer delChannel(String ids) throws BusinessException {
+        return this.channelDao.batchDelete(ids);
     }
 
     @PostMapping("enable")
-    public ModelAndView enableChannel(String ids) throws BusinessException {
-        return null;
+    @ApiOperation("启用频道")
+    public Integer enableChannel(String ids) throws BusinessException {
+        return this.channelDao.enableChannel(ids);
     }
 
     @PostMapping("disable")
-    public ModelAndView disableApp(String ids) throws BusinessException {
-        return null;
+    @ApiOperation("禁用频道")
+    public Integer disableApp(String ids) throws BusinessException {
+        return this.channelDao.disableChannel(ids);
     }
 }
