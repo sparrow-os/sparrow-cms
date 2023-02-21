@@ -19,7 +19,6 @@ public class Goods extends PO {
     private Long price;
     private Integer up;
     private Integer down;
-
     private Integer auditStatus;
 
     @Id

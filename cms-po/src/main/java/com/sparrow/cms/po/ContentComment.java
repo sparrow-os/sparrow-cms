@@ -1,12 +1,13 @@
 package com.sparrow.cms.po;
 
 import com.sparrow.protocol.MethodOrder;
+import com.sparrow.protocol.dao.PO;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class ContentComment {
+public class ContentComment extends PO {
     private Long id;
     private Long contentId;
     private String content;

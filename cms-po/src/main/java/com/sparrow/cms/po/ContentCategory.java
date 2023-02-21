@@ -15,8 +15,12 @@ public class ContentCategory extends PO {
     private String name;
     private String code;
     private Integer depth;
-    private Boolean leaf;
+    private Integer isLeaf;
     private Integer sort;
+    private String listUrl;
+    private String detailUrl;
+    private String newUrl;
+    private String createUserName;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -71,14 +75,45 @@ public class ContentCategory extends PO {
     }
 
     @MethodOrder(order = 7)
-    @Column(name = "leaf", columnDefinition = "tinyint(1) DEFAULT 0 COMMENT '是否叶子节点'", nullable = false)
-    public Boolean getLeaf() {
-        return leaf;
+    @Column(name = "is_leaf", columnDefinition = "tinyint(3) DEFAULT 0 COMMENT '是否叶子节点'", nullable = false)
+    public Integer getIsLeaf () {
+        return isLeaf;
     }
 
-    public void setLeaf(Boolean leaf) {
-        this.leaf = leaf;
+    public void setIsLeaf(Integer isLeaf) {
+        this.isLeaf = isLeaf;
     }
+
+    @MethodOrder(order = 8)
+    @Column(name = "list_url", columnDefinition = "varchar(32) DEFAULT '' COMMENT '列表url'", nullable = false)
+    public String getListUrl() {
+        return listUrl;
+    }
+
+    public void setListUrl(String listUrl) {
+        this.listUrl = listUrl;
+    }
+
+    @MethodOrder(order = 9)
+    @Column(name = "detail_url", columnDefinition = "varchar(32) DEFAULT '' COMMENT '详情url'", nullable = false)
+    public String getDetailUrl() {
+        return detailUrl;
+    }
+
+    public void setDetailUrl(String detailUrl) {
+        this.detailUrl = detailUrl;
+    }
+
+    @MethodOrder(order = 10)
+    @Column(name = "new_url", columnDefinition = "varchar(32) DEFAULT '' COMMENT '新建url'", nullable = false)
+    public String getNewUrl() {
+        return newUrl;
+    }
+
+    public void setNewUrl(String newUrl) {
+        this.newUrl = newUrl;
+    }
+
     @MethodOrder(order = 11)
     @Column(name = "sort", columnDefinition = "int(10) DEFAULT 0 COMMENT '排序号'", nullable = false)
     public Integer getSort() {
@@ -88,5 +123,4 @@ public class ContentCategory extends PO {
     public void setSort(Integer sort) {
         this.sort = sort;
     }
-
 }

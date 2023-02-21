@@ -1,18 +1,21 @@
 package com.sparrow.goods.po;
 
 import com.sparrow.protocol.MethodOrder;
+import com.sparrow.protocol.dao.PO;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class GoodsCategory {
+@Table(name = "goods_category")
+public class GoodsCategory extends PO {
     private Long id;
     private Long parentId;
     private String code;
     private String name;
     private Integer depth;
-    private Boolean leaf;
+    private Integer isLeaf;
     private Integer sort;
 
     @Id
@@ -68,13 +71,13 @@ public class GoodsCategory {
     }
 
     @MethodOrder(order = 7)
-    @Column(name = "leaf", columnDefinition = "tinyint(1) DEFAULT 0 COMMENT '是否叶子节点'", nullable = false)
-    public Boolean getLeaf() {
-        return leaf;
+    @Column(name = "is_leaf", columnDefinition = "tinyint(3) DEFAULT 0 COMMENT '是否叶子节点'", nullable = false)
+    public Integer getIsLeaf() {
+        return isLeaf;
     }
 
-    public void setLeaf(Boolean leaf) {
-        this.leaf = leaf;
+    public void setIsLeaf(Integer leaf) {
+        this.isLeaf = leaf;
     }
 
     @MethodOrder(order = 11)

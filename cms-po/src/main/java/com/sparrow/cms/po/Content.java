@@ -20,9 +20,10 @@ public class Content extends PO {
     private String editor;
     private String title;
     private String brief;
+    private Integer mediaType;
+    private String mediaUrl;
     private String keywords;
     private Integer sort;
-    private String url;
     private String coverUrl;
     private String createUserName;
     private Integer up;
@@ -104,16 +105,6 @@ public class Content extends PO {
         this.sort = sort;
     }
 
-    @MethodOrder(order = 6)
-    @Column(name = "url", columnDefinition = "varchar(256)  DEFAULT '' COMMENT '链接url'", nullable = false)
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     @MethodOrder(order = 7)
     @Column(name = "cover_url", columnDefinition = "varchar(256)  DEFAULT '' COMMENT '封面图'", nullable = false)
     public String getCoverUrl() {
@@ -122,6 +113,25 @@ public class Content extends PO {
 
     public void setCoverUrl(String coverUrl) {
         this.coverUrl = coverUrl;
+    }
+
+    @MethodOrder(order = 7.1F)
+    @Column(name = "media_type", columnDefinition = "int(11)  DEFAULT 0 COMMENT '媒体类型'", nullable = false)
+    public Integer getMediaType() {
+        return mediaType;
+    }
+
+    public void setMediaType(Integer mediaType) {
+        this.mediaType = mediaType;
+    }
+    @MethodOrder(order = 7.2F)
+    @Column(name = "media_url", columnDefinition = "varchar(255)  DEFAULT 0 COMMENT '媒体url'", nullable = false)
+    public String getMediaUrl() {
+        return mediaUrl;
+    }
+
+    public void setMediaUrl(String mediaUrl) {
+        this.mediaUrl = mediaUrl;
     }
 
     @MethodOrder(order = 8)
@@ -155,7 +165,7 @@ public class Content extends PO {
     }
 
     @MethodOrder(order = 11)
-    @Column(name = "ip", columnDefinition = "varchar(32) DEFAULT 0 COMMENT '踩数量'", nullable = false, updatable = false)
+    @Column(name = "ip", columnDefinition = "varchar(32) DEFAULT 0 COMMENT 'IP'", nullable = false, updatable = false)
     public Long getIp() {
         return ip;
     }

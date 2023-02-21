@@ -91,6 +91,8 @@ public class Attach extends PO {
         return this.contentType;
     }
 
+    @MethodOrder(order = 6)
+    @Column(name = "client_file_name", columnDefinition = "varchar(64) DEFAULT ''", updatable = false, nullable = false)
     public void setClientFileName(String clientFileName) {
         this.clientFileName = clientFileName;
     }
@@ -111,6 +113,8 @@ public class Attach extends PO {
         this.contentType = contentType;
     }
 
+    @MethodOrder(order = 6)
+    @Column(name = "is_cover", columnDefinition = "tinyint(1) DEFAULT 0 ", updatable = false, nullable = false)
     public Boolean getCover() {
         return isCover;
     }
@@ -119,6 +123,8 @@ public class Attach extends PO {
         isCover = cover;
     }
 
+    @MethodOrder(order = 7)
+    @Column(name = "width", columnDefinition = "int(10) DEFAULT 0 ", updatable = false, nullable = false)
     public Integer getWidth() {
         return width;
     }
@@ -127,6 +133,8 @@ public class Attach extends PO {
         this.width = width;
     }
 
+    @MethodOrder(order = 8)
+    @Column(name = "height", columnDefinition = "int(10) DEFAULT 0 ", updatable = false, nullable = false)
     public Integer getHeight() {
         return height;
     }
@@ -135,6 +143,8 @@ public class Attach extends PO {
         this.height = height;
     }
 
+    @MethodOrder(order = 9)
+    @Column(name = "business_type", columnDefinition = "int(10) DEFAULT 0 ", updatable = false, nullable = false)
     public Integer getBusinessType() {
         return businessType;
     }
@@ -143,6 +153,8 @@ public class Attach extends PO {
         this.businessType = businessType;
     }
 
+    @MethodOrder(order = 10)
+    @Column(name = "business_id", columnDefinition = "int(10) DEFAULT 0 ", updatable = false, nullable = false)
     public Integer getBusinessId() {
         return businessId;
     }
