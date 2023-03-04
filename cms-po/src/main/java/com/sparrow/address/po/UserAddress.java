@@ -17,6 +17,7 @@ public class UserAddress extends PO {
     private String cityCode;
     private String consigneeDetailAddress;
     private String postCode;
+    private Integer isDefault;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -80,13 +81,13 @@ public class UserAddress extends PO {
         this.consigneeDetailAddress = consigneeDetailAddress;
     }
 
-    @Column(name = "post_code", columnDefinition = "varchar(8)  DEFAULT '' COMMENT '邮政编码'", nullable = false)
-    @MethodOrder(order = 5)
-    public String getPostCode() {
-        return postCode;
+    @Column(name = "is_default", columnDefinition = "tinyint(3) UNSIGNED  DEFAULT 0 COMMENT '是否默认'", nullable = false)
+    @MethodOrder(order = 6)
+    public Integer getIsDefault() {
+        return isDefault;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    public void setIsDefault(Integer isDefault) {
+        this.isDefault = isDefault;
     }
 }

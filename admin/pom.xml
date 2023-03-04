@@ -15,9 +15,12 @@
         <module>cms-admin-protocol</module>
         <module>cms-admin-dao-api</module>
         <module>cms-admin-mybatis</module>
-        <module>cms-admin-controller</module>
+        <module>cms-admin-adapter</module>
         <module>cms-admin-mybatis-plus</module>
         <module>cms-admin-dao-jdbc</module>
         <module>cms-admin-dao-sparrow</module>
+        <module>cms-admin-main-spring-boot</module>
+        <module>cms-admin-infrastructure</module>
+        <module>cms-admin-domain</module>
     </modules>
 </project>

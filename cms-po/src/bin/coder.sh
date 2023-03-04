@@ -13,7 +13,7 @@ sparrow_coder_name=sparrow-coder-all.jar
 class_path=$(cd ../target/classes;pwd)
 echo $class_path
 #protocol_path=~/workspace/sparrow/sparrow-shell/sparrow-protocol-dao/target/sparrow-protocol-dao-1.0.0-SNAPSHOT.jar
-java  -classpath $SPARROW_CODER_HOME/$sparrow_coder_name:$class_path  com.sparrow.coding.Main $@
+java  -classpath $SPARROW_CODER_HOME/$sparrow_coder_name:$class_path  com.sparrow.coding.JavaMain $@
 
 
 

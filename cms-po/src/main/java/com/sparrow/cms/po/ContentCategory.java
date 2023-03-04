@@ -20,7 +20,6 @@ public class ContentCategory extends PO {
     private String listUrl;
     private String detailUrl;
     private String newUrl;
-    private String createUserName;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

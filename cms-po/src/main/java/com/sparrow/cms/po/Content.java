@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * CMS 内容F
+ * CMS 内容
  * <p>
  * persistence object/domain object
  */
@@ -124,6 +124,7 @@ public class Content extends PO {
     public void setMediaType(Integer mediaType) {
         this.mediaType = mediaType;
     }
+
     @MethodOrder(order = 7.2F)
     @Column(name = "media_url", columnDefinition = "varchar(255)  DEFAULT 0 COMMENT '媒体url'", nullable = false)
     public String getMediaUrl() {
