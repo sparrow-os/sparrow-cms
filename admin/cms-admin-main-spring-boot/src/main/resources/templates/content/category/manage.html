@@ -1,0 +1,156 @@
+
+        
+        <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <title>内容品类管理</title>
+            <meta http-equiv="pragma" content="no-cache"/>
+            <meta http-equiv="cache-control" content="no-cache"/>
+            <meta http-equiv="expires" content="0"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/pure-css/pure.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/sparrow.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css"
+                  th:href="@{${resource}+'/styles/layouts-backend.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/modal.css?v='+${resource_version}}"/>
+            <script language="javascript" type="text/javascript"
+                    th:src="@{${resource}+'/scripts/require.js?v='+${resource_version}}"></script>
+            <script language="javascript" type="text/javascript"
+                    th:src="@{${resource}+'/ext/scripts/system/language/zh_cn/content-category.js?v='+${resource_version}}"></script>
+            <script language="javascript" type="text/javascript">
+                requirejs.config({
+                baseUrl: "[[${resource}]]/scripts",
+                paths: {
+                contentCategory: '[[${resource}]]/ext/scripts/system/content/category/manage'
+                }
+                });
+                require(['sparrow', 'domReady!', 'contentCategory'], function ($, dom, contentCategoryController) {
+                contentCategoryController.load();
+                });
+            </script>
+        </head>
+        <body>
+        <div id="main">
+        <form method="post" class="pure-form">
+            <fieldset>
+                <input type="hidden" id="currentPageIndex" th:value="${query?.currentPageIndex}" name="currentPageIndex"/>
+                <input type="hidden" id="hdnGridResult" name="ids" gridViewId="grvContentCategoryList"
+                       keyType="int"/>
+                 //TODO
+                <input type="button" class="pure-button pure-button-primary" id="btnSearch"
+                       value="查询"/>
+            </fieldset>
+            <fieldset>
+                <input type="button" id="btnAdd" class="pure-button pure-button-primary"
+                       value="新建"/>
+                <input type="button" class="pure-button" id="btnEnable"
+                       title="启用"
+                       value="启用"/>
+                <input type="button" class="pure-button" id="btnDisable"
+                       value="禁用"/>
+                <input type="button" id="btnDelete" class="button-error pure-button"
+                       title="删除"
+                       value="删除"/>
+            </fieldset>
+        </form>
+        <div class="pure-form pure-form-aligned">
+        <fieldset>
+        <legend>共<span id="spanRecordCount" name="recordCount" class="highlight">[[${pager?.recordCount}]]</span>条记录
+        </legend>
+        <table class='pure-table' id="grvContentCategoryList">
+            <thead>
+                <tr>
+                   
+        
+        <th style="text-align:center;">
+            <input id="grvContentCategoryListCheckAll"
+                   onclick="$.gridView.allCheckClick(this);" type="checkbox"/>
+        </th>
+        
+    
+
+        
+        <th width="80" style="text-align:center;">父品类</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">品类名称</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">品类编码</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">排序</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">列表页模板url</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">详情模板url</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">新建模板url</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">状态</th>
+        
+    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:class="${indexStat.odd}?'pure-table-odd'" th:each="contentCategory,indexStat : ${pager?.list}">
+                    
+        
+        <td width="80" align="center">
+            <input th:id="${contentCategory.id}"
+                   onclick="$.gridView.recordCheckClick(this,'grvContentCategoryListCheckAll');"
+                   type="checkbox" name="grvContentCategoryList"/></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${contentCategory?.parentId}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${contentCategory?.name}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${contentCategory?.code}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${contentCategory?.sort}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${contentCategory?.listUrl}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${contentCategory?.detailUrl}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${contentCategory?.newUrl}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${contentCategory?.status}"></td>
+        
+    
+                </tr>
+            </tbody>
+       </table>
+                <div th:utext="${pager.html}"></div>
+            </fieldset>
+          </div>
+        </div>
+     </body>
+   </html>
+
+    

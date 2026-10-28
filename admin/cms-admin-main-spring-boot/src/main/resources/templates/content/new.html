@@ -1,0 +1,152 @@
+
+        
+        <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <title>内容 新增</title>
+            <meta http-equiv="pragma" content="no-cache"/>
+            <meta http-equiv="cache-control" content="no-cache"/>
+            <meta http-equiv="expires" content="0"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/sparrow.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/pure-css/pure.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css"
+                  th:href="@{${resource}+'/styles/layouts-backend.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/modal.css?v='+${resource_version}}"/>
+            <script language="javascript" type="text/javascript"
+                    th:src="@{${resource}+'/scripts/require.js?v='+${resource_version}}"></script>
+            <script language="javascript" type="text/javascript"
+                    th:src="@{${resource}+'/ext/scripts/system/language/zh_cn/content.js?v='+${resource_version}}"></script>
+            <script language="javascript" type="text/javascript">
+                requirejs.config({
+                baseUrl: "[[${resource}]]/scripts",
+                paths: {
+                content: '[[${resource}]]/ext/scripts/system/content/new'
+                }
+                });
+                require(['sparrow', 'domReady!', 'content'], function ($, dom, contentController) {
+                contentController.load();
+                });
+            </script>
+            <style type="text/css">
+                .inline-block label {
+                width: 7em !important;
+                }
+                .status label {
+                width: 3em !important;
+                }
+            </style>
+        </head>
+        <body>
+        <div id="main">
+        <form method="post" class="pure-form pure-form-aligned">
+        <fieldset>
+        <legend>注: <span class="highlight">*</span>为必添项</legend>
+        
+    
+        
+           <input type="hidden" id="txtId" th:value="${content?.id}" name="id"/>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>内容品类ID</label>
+                <input type="text" id="txtCategoryId" th:value="${content?.categoryId}" name="categoryId"/>
+                <span class="prompt" id="errorCategoryId"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>编辑器类型</label>
+                <input type="text" id="txtEditor" th:value="${content?.editor}" name="editor"/>
+                <span class="prompt" id="errorEditor"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>标题</label>
+                <input type="text" id="txtTitle" th:value="${content?.title}" name="title"/>
+                <span class="prompt" id="errorTitle"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>文章摘要</label>
+                <input type="text" id="txtBrief" th:value="${content?.brief}" name="brief"/>
+                <span class="prompt" id="errorBrief"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>媒体类型</label>
+                <input type="text" id="txtMediaType" th:value="${content?.mediaType}" name="mediaType"/>
+                <span class="prompt" id="errorMediaType"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>媒体url</label>
+                <input type="text" id="txtMediaUrl" th:value="${content?.mediaUrl}" name="mediaUrl"/>
+                <span class="prompt" id="errorMediaUrl"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>标签</label>
+                <input type="text" id="txtKeywords" th:value="${content?.keywords}" name="keywords"/>
+                <span class="prompt" id="errorKeywords"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>排序号</label>
+                <input type="text" id="txtSort" th:value="${content?.sort}" name="sort"/>
+                <span class="prompt" id="errorSort"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>封面图</label>
+                <input type="text" id="txtCoverUrl" th:value="${content?.coverUrl}" name="coverUrl"/>
+                <span class="prompt" id="errorCoverUrl"></span>
+            </div>
+        
+    
+        
+        <div class="pure-control-group">
+            <label>状态</label>
+            <div class="inline-block status">
+                <input type="radio" id="rdbStatus00" name="status" value="DISABLE"
+                       th:attr="checked=${content?.status=='DISABLE'}">
+                <label for="rdbStatus00">禁用</label>
+                <input type="radio" id="rdbStatus01" name="status" value="ENABLE"
+                       th:attr="checked=${content?.status=='ENABLE'}">
+                <label for="rdbStatus01">正常</label>
+            </div>
+            <span class="prompt" id="errorStatus"></span>
+        </div>
+         
+    
+        
+            <div class="pure-controls">
+                <input id="btnSave" type="button" class="pure-button pure-button-primary"
+                       value="提交"/>
+                <input id="btnReturn" type="button" class="pure-button"
+                       value="返回"/>
+            </div>
+        </fieldset>
+    </form>
+        </div>
+        </body>
+        </html>
+        <!--generate by sparrow coder-->
+     
+
+
+    

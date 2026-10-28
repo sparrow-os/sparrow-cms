@@ -9,9 +9,8 @@
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>com.sparrowzoo.cms.admin</groupId>
     <artifactId>cms-admin-protocol</artifactId>
-
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -21,6 +20,20 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>2.0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sparrowzoo</groupId>
+            <artifactId>sparrow-protocol</artifactId>
+        </dependency>
+        <dependency>
+            <artifactId>coder-protocol</artifactId>
+            <groupId>com.sparrowzoo.coding</groupId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sparrowzoo</groupId>
+            <artifactId>sparrow-protocol-dao</artifactId>
         </dependency>
     </dependencies>
 </project>

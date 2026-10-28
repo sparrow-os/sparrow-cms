@@ -9,22 +9,17 @@
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cms-admin-controller</artifactId>
+    <groupId>com.sparrowzoo.cms.admin</groupId>
+    <artifactId>cms-admin-adapter</artifactId>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <druid.version>1.1.10</druid.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.sparrowzoo</groupId>
-            <artifactId>cms-admin-protocol</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sparrowzoo</groupId>
-            <artifactId>cms-po</artifactId>
+            <groupId>com.sparrowzoo.cms.admin</groupId>
+            <artifactId>cms-admin-domain</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
@@ -43,21 +38,6 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
             <version>2.3.2.RELEASE</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.sparrowzoo.cms</groupId>
-            <artifactId>cms-admin-dao-sparrow</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>${druid.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.sparrowzoo</groupId>
             <artifactId>sparrow-starter</artifactId>
@@ -65,6 +45,11 @@
         <dependency>
             <groupId>com.sparrowzoo</groupId>
             <artifactId>sparrow-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sparrowzoo.cms.admin</groupId>
+            <artifactId>cms-admin-domain</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

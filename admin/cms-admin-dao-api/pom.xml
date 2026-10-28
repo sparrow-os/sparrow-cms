@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.sparrowzoo.cms</groupId>
+    <groupId>com.sparrowzoo.cms.admin</groupId>
     <artifactId>cms-admin-dao-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 

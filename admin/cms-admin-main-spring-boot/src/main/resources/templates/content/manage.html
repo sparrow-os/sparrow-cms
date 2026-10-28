@@ -1,0 +1,172 @@
+
+        
+        <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <title>内容管理</title>
+            <meta http-equiv="pragma" content="no-cache"/>
+            <meta http-equiv="cache-control" content="no-cache"/>
+            <meta http-equiv="expires" content="0"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/pure-css/pure.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/sparrow.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css"
+                  th:href="@{${resource}+'/styles/layouts-backend.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/modal.css?v='+${resource_version}}"/>
+            <script language="javascript" type="text/javascript"
+                    th:src="@{${resource}+'/scripts/require.js?v='+${resource_version}}"></script>
+            <script language="javascript" type="text/javascript"
+                    th:src="@{${resource}+'/ext/scripts/system/language/zh_cn/content.js?v='+${resource_version}}"></script>
+            <script language="javascript" type="text/javascript">
+                requirejs.config({
+                baseUrl: "[[${resource}]]/scripts",
+                paths: {
+                content: '[[${resource}]]/ext/scripts/system/content/manage'
+                }
+                });
+                require(['sparrow', 'domReady!', 'content'], function ($, dom, contentController) {
+                contentController.load();
+                });
+            </script>
+        </head>
+        <body>
+        <div id="main">
+        <form method="post" class="pure-form">
+            <fieldset>
+                <input type="hidden" id="currentPageIndex" th:value="${query?.currentPageIndex}" name="currentPageIndex"/>
+                <input type="hidden" id="hdnGridResult" name="ids" gridViewId="grvContentList"
+                       keyType="int"/>
+                 //TODO
+                <input type="button" class="pure-button pure-button-primary" id="btnSearch"
+                       value="查询"/>
+            </fieldset>
+            <fieldset>
+                <input type="button" id="btnAdd" class="pure-button pure-button-primary"
+                       value="新建"/>
+                <input type="button" class="pure-button" id="btnEnable"
+                       title="启用"
+                       value="启用"/>
+                <input type="button" class="pure-button" id="btnDisable"
+                       value="禁用"/>
+                <input type="button" id="btnDelete" class="button-error pure-button"
+                       title="删除"
+                       value="删除"/>
+            </fieldset>
+        </form>
+        <div class="pure-form pure-form-aligned">
+        <fieldset>
+        <legend>共<span id="spanRecordCount" name="recordCount" class="highlight">[[${pager?.recordCount}]]</span>条记录
+        </legend>
+        <table class='pure-table' id="grvContentList">
+            <thead>
+                <tr>
+                   
+        
+        <th style="text-align:center;">
+            <input id="grvContentListCheckAll"
+                   onclick="$.gridView.allCheckClick(this);" type="checkbox"/>
+        </th>
+        
+    
+
+        
+        <th width="80" style="text-align:center;">内容品类ID</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">编辑器类型</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">标题</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">文章摘要</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">媒体类型</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">媒体url</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">标签</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">排序号</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">封面图</th>
+        
+    
+        
+        <th width="80" style="text-align:center;">状态</th>
+        
+    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:class="${indexStat.odd}?'pure-table-odd'" th:each="content,indexStat : ${pager?.list}">
+                    
+        
+        <td width="80" align="center">
+            <input th:id="${content.id}"
+                   onclick="$.gridView.recordCheckClick(this,'grvContentListCheckAll');"
+                   type="checkbox" name="grvContentList"/></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.categoryId}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.editor}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.title}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.brief}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.mediaType}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.mediaUrl}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.keywords}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.sort}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.coverUrl}"></td>
+        
+    
+        
+            <td width="80" align="center" th:text="${content?.status}"></td>
+        
+    
+                </tr>
+            </tbody>
+       </table>
+                <div th:utext="${pager.html}"></div>
+            </fieldset>
+          </div>
+        </div>
+     </body>
+   </html>
+
+    

@@ -1,0 +1,136 @@
+
+        
+        <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <title>内容品类 新增</title>
+            <meta http-equiv="pragma" content="no-cache"/>
+            <meta http-equiv="cache-control" content="no-cache"/>
+            <meta http-equiv="expires" content="0"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/sparrow.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/pure-css/pure.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css"
+                  th:href="@{${resource}+'/styles/layouts-backend.css?v='+${resource_version}}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{${resource}+'/styles/modal.css?v='+${resource_version}}"/>
+            <script language="javascript" type="text/javascript"
+                    th:src="@{${resource}+'/scripts/require.js?v='+${resource_version}}"></script>
+            <script language="javascript" type="text/javascript"
+                    th:src="@{${resource}+'/ext/scripts/system/language/zh_cn/content-category.js?v='+${resource_version}}"></script>
+            <script language="javascript" type="text/javascript">
+                requirejs.config({
+                baseUrl: "[[${resource}]]/scripts",
+                paths: {
+                contentCategory: '[[${resource}]]/ext/scripts/system/content/category/new'
+                }
+                });
+                require(['sparrow', 'domReady!', 'contentCategory'], function ($, dom, contentCategoryController) {
+                contentCategoryController.load();
+                });
+            </script>
+            <style type="text/css">
+                .inline-block label {
+                width: 7em !important;
+                }
+                .status label {
+                width: 3em !important;
+                }
+            </style>
+        </head>
+        <body>
+        <div id="main">
+        <form method="post" class="pure-form pure-form-aligned">
+        <fieldset>
+        <legend>注: <span class="highlight">*</span>为必添项</legend>
+        
+    
+        
+           <input type="hidden" id="txtId" th:value="${contentCategory?.id}" name="id"/>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>父品类</label>
+                <input type="text" id="txtParentId" th:value="${contentCategory?.parentId}" name="parentId"/>
+                <span class="prompt" id="errorParentId"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>品类名称</label>
+                <input type="text" id="txtName" th:value="${contentCategory?.name}" name="name"/>
+                <span class="prompt" id="errorName"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>品类编码</label>
+                <input type="text" id="txtCode" th:value="${contentCategory?.code}" name="code"/>
+                <span class="prompt" id="errorCode"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>排序</label>
+                <input type="text" id="txtSort" th:value="${contentCategory?.sort}" name="sort"/>
+                <span class="prompt" id="errorSort"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>列表页模板url</label>
+                <input type="text" id="txtListUrl" th:value="${contentCategory?.listUrl}" name="listUrl"/>
+                <span class="prompt" id="errorListUrl"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>详情模板url</label>
+                <input type="text" id="txtDetailUrl" th:value="${contentCategory?.detailUrl}" name="detailUrl"/>
+                <span class="prompt" id="errorDetailUrl"></span>
+            </div>
+        
+    
+        
+            <div class="pure-control-group">
+                <label>新建模板url</label>
+                <input type="text" id="txtNewUrl" th:value="${contentCategory?.newUrl}" name="newUrl"/>
+                <span class="prompt" id="errorNewUrl"></span>
+            </div>
+        
+    
+        
+        <div class="pure-control-group">
+            <label>状态</label>
+            <div class="inline-block status">
+                <input type="radio" id="rdbStatus00" name="status" value="DISABLE"
+                       th:attr="checked=${contentCategory?.status=='DISABLE'}">
+                <label for="rdbStatus00">禁用</label>
+                <input type="radio" id="rdbStatus01" name="status" value="ENABLE"
+                       th:attr="checked=${contentCategory?.status=='ENABLE'}">
+                <label for="rdbStatus01">正常</label>
+            </div>
+            <span class="prompt" id="errorStatus"></span>
+        </div>
+         
+    
+        
+            <div class="pure-controls">
+                <input id="btnSave" type="button" class="pure-button pure-button-primary"
+                       value="提交"/>
+                <input id="btnReturn" type="button" class="pure-button"
+                       value="返回"/>
+            </div>
+        </fieldset>
+    </form>
+        </div>
+        </body>
+        </html>
+        <!--generate by sparrow coder-->
+     
+
+
+    
